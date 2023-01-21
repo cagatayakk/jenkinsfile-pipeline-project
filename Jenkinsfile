@@ -10,7 +10,6 @@ pipeline {
         stage('Docker Build') { 
             steps {
                 sh 'sudo su'
-                sh 'docker images'
                 sh 'docker build -t ${IMAGENAME}:lts .'
                 sh 'docker images' 
                 sh 'docker run -d -p 80:80 ${IMAGENAME}:lts'
@@ -32,7 +31,6 @@ pipeline {
             steps {
                
                 sh 'docker push ${AWS}.dkr.ecr.${AWSREGION}.amazonaws.com/${IMAGENAME}:lts'
-                sh 'exit'
                 
             }
         }
