@@ -9,7 +9,6 @@ pipeline {
     stages {
         stage('Docker Build') { 
             steps {
-                sh 'sudo su'
                 sh 'docker build -t ${IMAGENAME}:lts .'
                 sh 'docker images' 
                 sh 'docker run -d -p 80:80 ${IMAGENAME}:lts'
