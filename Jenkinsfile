@@ -31,7 +31,7 @@ pipeline {
             steps {
                
                 sh 'aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin ${AWS}.dkr.ecr.us-east-1.amazonaws.com'  
-                sh 'docker push ${AWS}.dkr.ecr.${AWSREGION}.amazonaws.com/cagatayak/${IMAGENAME}:lts'              
+                sh 'docker push ${AWS}.dkr.ecr.${AWSREGION}.amazonaws.com/${IMAGENAME}:lts'              
             }
         }
     }
