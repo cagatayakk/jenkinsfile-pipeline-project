@@ -1,7 +1,7 @@
 FROM nginx
-RUN yum update
-RUN yum upgrade -y
-RUN yum install curl  
+RUN apt-get update
+RUN apt-get upgrade -y
+RUN apt-get install curl  
 WORKDIR /devops
 COPY . .
 ENTRYPOINT [ "service" ] ["ngix", "start"]
